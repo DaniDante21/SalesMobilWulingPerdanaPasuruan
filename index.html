@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wuling Perdana Pasuruan</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#f5f1eb;
+      color:#2d1f16;
+      overflow-x:hidden;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header{
+      width:100%;
+      padding:18px 7%;
+      background:linear-gradient(135deg,#3e2723,#6d4c41);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .logo{
+      color:white;
+      font-size:28px;
+      font-weight:bold;
+      letter-spacing:1px;
+    }
+
+    nav{
+      display:flex;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    nav a{
+      color:white;
+      font-weight:bold;
+      transition:0.3s;
+      font-size:15px;
+    }
+
+    nav a:hover{
+      color:#ffcc80;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero{
+      min-height:100vh;
+      background:
+      linear-gradient(rgba(40,20,10,0.65),rgba(40,20,10,0.65)),
+      url('image/D.jpg');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:40px 20px;
+    }
+
+    .hero-content{
+      width:100%;
+      max-width:850px;
+      color:white;
+      animation:fadeIn 1.3s ease;
+    }
+
+    .hero h1{
+      font-size:60px;
+      margin-bottom:20px;
+      line-height:1.2;
+    }
+
+    .hero p{
+      font-size:20px;
+      line-height:1.8;
+      margin-bottom:35px;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 35px;
+      border-radius:50px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn-wa{
+      background:#25D366;
+      color:white;
+      box-shadow:0 5px 20px rgba(37,211,102,0.4);
+    }
+
+    .btn-wa:hover{
+      transform:translateY(-4px);
+      background:#1ebe5d;
+    }
+
+    /* =========================
+       SECTION TITLE
+    ========================= */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      color:#4e342e;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#777;
+      font-size:16px;
+    }
+
+    /* =========================
+       MAPS SECTION
+    ========================= */
+
+    .maps-section{
+      width:100%;
+      padding:90px 7%;
+      background:linear-gradient(135deg,#3e2723,#5d4037);
+    }
+
+    .maps-wrapper{
+      width:100%;
+      max-width:1300px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:stretch;
+    }
+
+    .maps-card,
+    .card-name{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .maps-card iframe{
+      width:100%;
+      height:100%;
+      min-height:500px;
+      border:0;
+    }
+
+    .card-name{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:30px;
+    }
+
+    .card-name img{
+      width:100%;
+      max-width:420px;
+      border-radius:20px;
+      transition:0.4s;
+    }
+
+    .card-name img:hover{
+      transform:scale(1.03);
+    }
+
+    /* =========================
+       MOBIL
+    ========================= */
+
+    .cars{
+      padding:90px 7%;
+    }
+
+    .car-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:35px;
+    }
+
+    .car-card{
+      background:white;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.1);
+      transition:0.4s;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .car-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .car-card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+    }
+
+    .car-info{
+      padding:25px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .car-info h3{
+      font-size:28px;
+      margin-bottom:10px;
+      color:#3e2723;
+    }
+
+    .price{
+      font-size:24px;
+      font-weight:bold;
+      color:#8d6e63;
+      margin-bottom:20px;
+    }
+
+    .features{
+      color:#555;
+      line-height:1.9;
+      margin-bottom:25px;
+      flex:1;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer{
+      background:#3e2723;
+      color:white;
+      text-align:center;
+      padding:50px 20px;
+    }
+
+    footer h3{
+      font-size:30px;
+      margin-bottom:15px;
+    }
+
+    footer p{
+      line-height:1.9;
+      color:#e0e0e0;
+    }
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media(max-width:992px){
+
+      .hero h1{
+        font-size:48px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .maps-wrapper{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:768px){
+
+      header{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+      }
+
+      .logo{
+        font-size:24px;
+      }
+
+      nav{
+        justify-content:center;
+        gap:15px;
+      }
+
+      nav a{
+        font-size:14px;
+      }
+
+      .hero{
+        min-height:85vh;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .btn{
+        width:100%;
+        max-width:320px;
+      }
+
+      .section-title h2{
+        font-size:32px;
+      }
+
+      .cars{
+        padding:70px 20px;
+      }
+
+      .maps-section{
+        padding:70px 20px;
+      }
+
+      .maps-card iframe{
+        min-height:350px;
+      }
+
+      .car-info h3{
+        font-size:24px;
+      }
+
+      .price{
+        font-size:22px;
+      }
+
+    }
+
+    /* =========================
+       SMALL MOBILE
+    ========================= */
+
+    @media(max-width:480px){
+
+      .hero h1{
+        font-size:30px;
+      }
+
+      .hero p{
+        font-size:15px;
+        line-height:1.7;
+      }
+
+      .car-grid{
+        grid-template-columns:1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+      WULING PERDANA
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#map">Maps</a>
+      <a href="#mobil">Mobil</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Mobil Impian Harga Terbaik
+      </h1>
+
+      <p>
+        Temukan Mobil Listrik, Irit, dan Elegan dengan promo cicilan ringan.
+        <br>Konsultasi langsung dengan sales melalui WhatsApp.
+      </p>
+
+      <a 
+        href="https://wa.me/6285730935881"
+        target="_blank"
+        class="btn btn-wa">
+
+        Chat WhatsApp
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- MAPS -->
+
+  <section class="maps-section" id="map">
+
+    <div class="section-title">
+
+      <h2 style="color:white;">
+        Lokasi Dealer
+      </h2>
+
+      <p style="color:#e0e0e0;">
+        Temukan lokasi showroom dan hubungi sales resmi Wuling Perdana Pasuruan
+      </p>
+
+    </div>
+
+    <div class="maps-wrapper">
+
+      <!-- MAP -->
+
+      <div class="maps-card">
+
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4016.147325747036!2d112.9125297!3d-7.6443329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7c7b1e4da812d%3A0x896457bc3c5be29e!2sWuling%20Perdana%20Pasuruan!5e1!3m2!1sen!2sid!4v1778299892459!5m2!1sen!2sid"
+          loading="lazy"
+          allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="card-name">
+
+        <img 
+          src="image/Card1.jpeg"
+          alt="Kartu Nama Sales">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MOBIL -->
+
+  <section class="cars" id="mobil">
+
+    <div class="section-title">
+
+      <h2>Mobil Pilihan</h2>
+
+      <p>
+        Pilihan mobil terbaik dengan desain modern dan teknologi terbaru
+      </p>
+
+    </div>
+
+    <div class="car-grid">
+
+      <!-- CARD 1 -->
+
+      <div class="car-card">
+
+        <img src="image/A.jpg" alt="Wuling Air EV">
+
+        <div class="car-info">
+
+          <h3>Wuling Air EV</h3>
+
+          <div class="price">
+            Mulai Rp 180 Jutaan
+          </div>
+
+          <div class="features">
+            ✔ Mobil listrik modern<br>
+            ✔ Irit dan ramah lingkungan<br>
+            ✔ Cocok untuk perkotaan
+          </div>
+
+          <a
+            href="https://wa.me/6285730935881?text=Halo%20saya%20tertarik%20dengan%20Wuling%20Air%20EV"
+            target="_blank"
+            class="btn btn-wa">
+
+            Tanya Sekarang
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 2 -->
+
+      <div class="car-card">
+
+        <img src="image/B.jpg" alt="Wuling Binguo EV">
+
+        <div class="car-info">
+
+          <h3>Wuling Binguo EV</h3>
+
+          <div class="price">
+            Mulai Rp 320 Jutaan
+          </div>
+
+          <div class="features">
+            ✔ Interior mewah<br>
+            ✔ Mesin bertenaga<br>
+            ✔ Cocok untuk keluarga
+          </div>
+
+          <a
+            href="https://wa.me/6285730935881?text=Halo%20saya%20tertarik%20dengan%20Wuling%20Binguo%20EV"
+            target="_blank"
+            class="btn btn-wa">
+
+            Tanya Sekarang
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 3 -->
+
+      <div class="car-card">
+
+        <img src="image/C.jpg" alt="Wuling Cloud EV">
+
+        <div class="car-info">
+
+          <h3>Wuling Cloud EV</h3>
+
+          <div class="price">
+            Mulai Rp 400 Jutaan
+          </div>
+
+          <div class="features">
+            ✔ Desain sporty<br>
+            ✔ Performa maksimal<br>
+            ✔ Teknologi modern
+          </div>
+
+          <a
+            href="https://wa.me/6285730935881?text=Halo%20saya%20tertarik%20dengan%20Wuling%20Cloud%20EV"
+            target="_blank"
+            class="btn btn-wa">
+
+            Tanya Sekarang
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 4 -->
+
+      <div class="car-card">
+
+        <img src="image/D-.jpg" alt="Wuling Darion EV">
+
+        <div class="car-info">
+
+          <h3>Wuling Darion EV</h3>
+
+          <div class="price">
+            Mulai Rp 450 Jutaan
+          </div>
+
+          <div class="features">
+            ✔ Fitur Mewah Harga Lebih Terjangkau<br>
+            ✔ Desain Modern dan Stylish<br>
+            ✔ Kabin Nyaman dan Teknologi Canggih
+          </div>
+
+          <a
+            href="https://wa.me/6285730935881?text=Halo%20saya%20tertarik%20dengan%20Wuling%20Cloud%20EV"
+            target="_blank"
+            class="btn btn-wa">
+
+            Tanya Sekarang
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CARD 5 -->
+
+      <div class="car-card">
+
+        <img src="image/E.jpg" alt="Wuling Eksion EV">
+
+        <div class="car-info">
+
+          <h3>Wuling Eksion EV</h3>
+
+          <div class="price">
+            Mulai Rp 450 Jutaan
+          </div>
+
+          <div class="features">
+            ✔ Desain modern, nyaman dikendarai<br>
+            ✔ Irit, canggih, dan fitur lengkap<br>
+            ✔ Cocok untuk keluarga maupun harian
+          </div>
+
+          <a
+            href="https://wa.me/6285730935881?text=Halo%20saya%20tertarik%20dengan%20Wuling%20Cloud%20EV"
+            target="_blank"
+            class="btn btn-wa">
+
+            Tanya Sekarang
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer id="kontak">
+
+    <h3>WULING PERDANA PASURUAN</h3>
+
+    <p>
+      Dealer Mobil Resmi & Premium
+    </p>
+
+    <p>
+      Jl. Veteran No.09, Kandangsapi, Kec. Panggungrejo,
+      Kota Pasuruan, Jawa Timur 67126
+    </p>
+
+    <p>
+      WhatsApp : 0857-3093-5881
+    </p>
+
+  </footer>
+
+</body>
+</html>
